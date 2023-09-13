@@ -8,15 +8,24 @@ const Home = () => {
   const [user, setUser] = useState<UserProps | null>(null);
   const [error, setError] = useState(false);
 
-  const loadUser =async (userName:string) => {
+  const loadUser = async (userName:string) => {
     setError(false);
     setUser(null);
 
-    const res =await fetch(`https://api.github.com/users/${userName}`);
+    // const res =await fetch(`https://api.github.com/user/${userName}`,{
+    //   method: "GET",
+    //   headers: {
+    //     "Content-type": "application/json;charset=UTF-8",
+    //     Authorization: `Bearer ${Token}`,
+    //     "X-GitHub-Api-Version": "2022-11-28"}
+      
+    // });
+
+    const res =await fetch(`https://api.github.com/user/${userName}`)
 
     const data = await res.json();
  
-    if(res.status === 404,403){
+    if(res.status === 404){
       setError(true);
       return;
     }

@@ -3,26 +3,29 @@ import {MdLocationPin} from "react-icons/md"
 
 import { Link } from "react-router-dom"
 
+import classes from "./User.module.css"
+
 const User = ({login, 
     avatar_url, 
     followers, 
     following, 
     location}: UserProps) => {
   return (
-    <div>
+    <div className={classes.user}>
         <img src={avatar_url} alt="" />
         <h2>{login}</h2>
        {location && (
-            <p>
+            <p className={classes.location}>
                 <MdLocationPin/>
                 <span>{location}</span>
             </p>
        )}
-        <div>
-            <div>
+        <div className={classes.stats}>
+            <div className={classes.numbers}>
                 <p>Seguidores:</p>
                 <p>{followers}</p>
-            </div> <div>
+            </div> 
+            <div className={classes.numbers}>
                 <p>Seguindo:</p>
                 <p>{following}</p>
             </div> 
