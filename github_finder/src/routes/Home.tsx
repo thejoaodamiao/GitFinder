@@ -12,7 +12,7 @@ const Home = () => {
     setError(false);
     setUser(null);
 
-    // const res =await fetch(`https://api.github.com/user/${userName}`,{
+    // const res =await fetch(`https://api.github.com/users/${userName}`,{
     //   method: "GET",
     //   headers: {
     //     "Content-type": "application/json;charset=UTF-8",
@@ -21,7 +21,7 @@ const Home = () => {
       
     // });
 
-    const res =await fetch(`https://api.github.com/user/${userName}`)
+    const res =await fetch(`https://api.github.com/users/${userName}`)
 
     const data = await res.json();
  
